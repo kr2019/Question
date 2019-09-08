@@ -22,7 +22,7 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
 
-import ClientAvatar from "./clientAvatarTest";
+import ClientAvatar from "./clientAvatar";
 import Blue from "@material-ui/core/colors/blue";
 import Container from "@material-ui/core/Container";
 
