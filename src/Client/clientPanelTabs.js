@@ -8,9 +8,9 @@ import {
 import Paper from "@material-ui/core/Paper";
 import deepPurple from "@material-ui/core/colors/deepPurple";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
+
 import green from "@material-ui/core/colors/green";
-import red from "@material-ui/core/colors/red";
+
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
@@ -21,21 +21,10 @@ import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
-import AssignedClientsTable from "../Tables/assignedClientsTable";
 
-import TeamMemFilesTable from "../Tables/teamMemFilesTable";
-import AssignedClientsActions from "../Actions/asssignedClientsActions";
-import PleaseWork3 from "../teamMember/teamMemberInfo";
-import ClientInfo from "./clientInfo";
-import ClientContactInfo from "./clientContactInfo";
-import ClientPayorInfo from "./clientPayorInfo";
-import NoteHistoryTableOld from "../Old/clientNoteHistoryTableOld";
-import NoteHistoryTable from "../Tables/noteHistoryTable";
 import ClientAvatar from "./clientAvatarTest";
-import GoalsObjectives from "./goalsObjectives";
-import Cyan from "@material-ui/core/colors/cyan";
+import Blue from "@material-ui/core/colors/blue";
 import Container from "@material-ui/core/Container";
-//
 
 import axios from "axios";
 
@@ -158,7 +147,7 @@ const styles = theme => ({
     //marginTop: theme.spacing.unit * 22,
     width: "100%",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: Cyan[800]
+    backgroundColor: Blue[800]
   },
 
   infoRoot: {
@@ -214,22 +203,6 @@ const titles = [
   {
     value: "Mx.",
     label: "Mx."
-  }
-];
-
-const selectedClient = [
-  {
-    value: "Billy Joe",
-    label: "Billy Joe"
-  },
-
-  {
-    value: "Ashley Flowers",
-    label: "Ashley Flowers"
-  },
-  {
-    value: "John Smith",
-    label: "John Smith"
   }
 ];
 
@@ -501,7 +474,6 @@ class TopPanel extends React.Component {
               </TextField>
             </Grid>
           </Paper>
-
           <AppBar className={classes.root2} position="static">
             <Tabs
               indicatorColor="none"
@@ -511,12 +483,8 @@ class TopPanel extends React.Component {
               <Tab label="Client Information" />
               <Tab label="Contact Information" />
               <Tab label="Payor Information" />
-              <Tab label="Note History" />
-              <Tab label="Message History" />
-              <Tab label="Goals & Objectives" />
             </Tabs>
           </AppBar>
-
           {tabValue === 0 && (
             <form
               /* className={classes.container} */ noValidate
@@ -936,23 +904,6 @@ class TopPanel extends React.Component {
           {tabValue === 2 && (
             <form className={classes.container} noValidate autoComplete="off">
               <Paper className={classes.infoRoot} elevation={2}>
-                <Grid container row justify="space-between">
-                  <MuiThemeProvider theme={theme}>
-                    <FormGroup className={classes.marg} row>
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            checked={this.state.sameAsContact}
-                            onChange={this.handleChangeChecked("sameAsContact")}
-                            value="sameAsContact"
-                            color="primary"
-                          />
-                        }
-                        label="Same as contact" /* same as contact 1 */
-                      />
-                    </FormGroup>
-                  </MuiThemeProvider>
-                </Grid>
                 <Grid container justify="center" alignItems="center">
                   <MuiThemeProvider theme={theme}>
                     <TextField
@@ -1126,93 +1077,6 @@ class TopPanel extends React.Component {
                   />
                 </Grid>
                 <Grid container justify="flex-end">
-                  <Button
-                    className={classes.saveButton}
-                    size="large"
-                    variant="contained"
-                  >
-                    Save
-                  </Button>
-                </Grid>
-              </Paper>
-            </form>
-          )}
-          {/* Note History */}
-          {/* NEED TO MAKE SURE TOP PANEL TEXTTBOX COLORS ARE CORRECT */}
-          {tabValue === 3 && <NoteHistoryTable />}
-          {/* Message History */}
-          {tabValue === 4 && <Paper>Message History</Paper>}
-          {/* Goals & Objectives */}
-          {tabValue === 5 && (
-            <form className={classes.container} noValidate autoComplete="off">
-              <Paper className={classes.infoRoot} elevation={2}>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                >
-                  <TextField
-                    id="standard-goal1"
-                    multiline
-                    variant="outlined"
-                    label="Goal"
-                    className={classes.textFieldGoals}
-                    value={this.state.goal1}
-                    onChange={this.handleChange("goal1")}
-                    margin="normal"
-                  />
-
-                  <TextField
-                    id="standard-obj1_1"
-                    multiline
-                    label="Objective"
-                    variant="outlined"
-                    className={classes.textFieldGoals2}
-                    value={this.state.obj1_1}
-                    onChange={this.handleChange("obj1_1")}
-                    margin="normal"
-                  />
-                  <TextField
-                    id="standard-obj1_2"
-                    multiline
-                    label="Objective"
-                    //variant="outlined"
-                    className={classes.textFieldGoals2}
-                    value={this.state.obj1_1}
-                    onChange={this.handleChange("obj1_2")}
-                    margin="normal"
-                  />
-                  <TextField
-                    id="standard-goal2"
-                    multiline
-                    //variant="outlined"
-                    label="Goal"
-                    className={classes.textFieldGoals}
-                    value={this.state.goal2}
-                    onChange={this.handleChange("goal2")}
-                    margin="normal"
-                  />
-
-                  <TextField
-                    id="standard-obj2"
-                    multiline
-                    label="Objective"
-                    //variant="outlined"
-                    className={classes.textFieldGoals2}
-                    value={this.state.obj2_1}
-                    onChange={this.handleChange("obj2")}
-                    margin="normal"
-                  />
-                </Grid>
-                <Grid container direction="row" justify="space-between">
-                  <Button
-                    size="medium"
-                    variant="contained"
-                    className={classes.button}
-                  >
-                    +
-                  </Button>
                   <Button
                     className={classes.saveButton}
                     size="large"

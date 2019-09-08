@@ -1,13 +1,9 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
-import deepPurple from "@material-ui/core/colors/deepPurple";
-import Amber from "@material-ui/core/colors/amber";
 import Pink from "@material-ui/core/colors/pink";
-import Teal from "@material-ui/core/colors/pink";
 
 const useStyles = makeStyles(theme => ({
   button: {

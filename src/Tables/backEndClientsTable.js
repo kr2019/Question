@@ -12,31 +12,17 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
-import DeleteIcon from "@material-ui/icons/Delete";
-import FilterListIcon from "@material-ui/icons/FilterList";
-import { lighten } from "@material-ui/core/styles/colorManipulator";
-import { lightBlue } from "@material-ui/core/colors";
-import Cyan from "@material-ui/core/colors/cyan";
+import Blue from "@material-ui/core/colors/blue";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import ClientPanelTabs from "../Client/clientPanelTabs";
-import { Switch, Link, Route, withRouter, Redirect } from "react-router-dom";
 
 import axios from "axios";
-/*
-let counter = 0;
-function createData(name, role, email, phone, clients) {
-  counter += 1;
-  return { id: counter, name, role, email, phone, clients };
-}
-*/
+
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -75,8 +61,7 @@ const rows = [
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    //backgroundColor: lightBlue[400],
-    backgroundColor: Cyan[800],
+    backgroundColor: Blue[800],
     color: theme.palette.common.white,
     fontSize: 15
   },
@@ -124,7 +109,6 @@ EnhancedTableHead.propTypes = {
   onRequestSort: PropTypes.func.isRequired,
   order: PropTypes.string.isRequired,
   orderBy: PropTypes.string.isRequired
-  //rowCount: PropTypes.number.isRequired,
 };
 
 const styles = theme => ({
@@ -147,17 +131,12 @@ const styles = theme => ({
   },
   appBar: {
     position: "relative",
-    backgroundColor: Cyan[800]
+    backgroundColor: Blue[800]
   },
   flex: {
     flex: 1
   }
 });
-
-const navStyle = {
-  color: "black",
-  textDecoration: "none"
-};
 
 function Transition(props) {
   return <Slide direction="up" {...props} />;
@@ -166,7 +145,6 @@ function Transition(props) {
 class EnhancedTable extends React.Component {
   state = {
     order: "",
-    //open: false,
     orderBy: "",
     clientData: [],
     selectedIndex: null,
@@ -230,8 +208,6 @@ class EnhancedTable extends React.Component {
     this.setState({ open: false });
   };
 
-  // isSelected = id => this.state.selected.indexOf(id) !== -1;
-
   render() {
     const { classes } = this.props;
     const { clientData, order, orderBy, rowsPerPage, page } = this.state;
@@ -251,11 +227,7 @@ class EnhancedTable extends React.Component {
             >
               <AppBar className={classes.appBar}>
                 <Toolbar>
-                  <IconButton
-                    color="inherit"
-                    onClick={this.handleClose}
-                    //aria-label="Close"
-                  >
+                  <IconButton color="inherit" onClick={this.handleClose}>
                     <CloseIcon />
                   </IconButton>
                   <Typography
@@ -265,19 +237,13 @@ class EnhancedTable extends React.Component {
                   >
                     Client Details
                   </Typography>
-                  {/*
-                  <Button color="inherit" onClick={this.handleClose}>
-                    save
-                  </Button>
-                 */}
                 </Toolbar>
               </AppBar>
               <ClientPanelTabs />
             </Dialog>
 
-            <Table /* className={classes.table} */ aria-labelledby="tableTitle">
+            <Table>
               <EnhancedTableHead
-                //numSelected={selected.length}
                 order={order}
                 orderBy={orderBy}
                 onRequestSort={this.handleRequestSort}
@@ -287,7 +253,6 @@ class EnhancedTable extends React.Component {
                 {stableSort(clientData, getSorting(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map(n => {
-                    // const isSelected = this.isSelected(n.id);
                     return (
                       <TableRow
                         hover
@@ -308,7 +273,6 @@ class EnhancedTable extends React.Component {
                           {n.assi_therapist_full_name}
                         </TableCell>
                         <TableCell align="center">{n.facility}</TableCell>
-                        {/* <TableCell align="center">{n.clients}</TableCell> */}
                       </TableRow>
                     );
                   })}

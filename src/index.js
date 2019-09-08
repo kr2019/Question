@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 //import './index.css';
 import Test from "./test";
 //import ReactCalendarBase from "./ReactCalendarBase";
-import { BrowserRouter, Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 //ReactDOM.render(<ReactCalendarBase />, document.querySelector("#root"));
 
