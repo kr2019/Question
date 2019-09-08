@@ -19,7 +19,7 @@ import Slide from "@material-ui/core/Slide";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import CloseIcon from "@material-ui/icons/Close";
-import ClientPanelTabs from "../Client/clientPanelTabs";
+import ClientPanelTabs from "./clientPanelTabs";
 
 import axios from "axios";
 

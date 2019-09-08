@@ -22,12 +22,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import Mood from "@material-ui/icons/Mood";
 
-import ClientPanelTabs from "./Client/clientPanelTabs";
+import ClientPanelTabs from "./clientPanelTabs";
 
 import Blue from "@material-ui/core/colors/blue";
-//import NewEventDialog2 from "./newEventDialog2";
 
-import BackEndClientsTable from "./Tables/backEndClientsTable";
+import BackEndClientsTable from "./backEndClientsTable";
 import { Switch, Link, Route } from "react-router-dom";
 
 //width of drawer
