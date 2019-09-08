@@ -26,7 +26,7 @@ import ClientDetails from "./clientDetails";
 
 import Blue from "@material-ui/core/colors/blue";
 
-import BackEndClientsTable from "./backEndClientsTable";
+import ClientsTable from "./clientsTable";
 import { Switch, Link, Route } from "react-router-dom";
 
 //width of drawer
@@ -228,7 +228,7 @@ class PersistentDrawerLeft extends React.Component {
               path="/clients"
               render={props => (
                 <div>
-                  <BackEndClientsTable />
+                  <ClientsTable />
                 </div>
               )}
             />
@@ -247,7 +247,7 @@ class PersistentDrawerLeft extends React.Component {
               render={() => (
                 <div>
                   {/* <Page404/> */}
-                  <BackEndClientsTable />
+                  <ClientsTable />
                 </div>
               )}
             />
