@@ -19,7 +19,7 @@ import Slide from "@material-ui/core/Slide";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import CloseIcon from "@material-ui/icons/Close";
-import ClientPanelTabs from "./clientPanelTabs";
+import ClientDetails from "./clientDetails";
 
 import axios from "axios";
 
@@ -241,7 +241,7 @@ class EnhancedTable extends React.Component {
                 </Toolbar>
               </AppBar>
               {/* Client Details */}
-              <ClientPanelTabs />
+              <ClientDetails />
             </Dialog>
 
             <Table>

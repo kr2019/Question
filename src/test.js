@@ -22,7 +22,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import Mood from "@material-ui/icons/Mood";
 
-import ClientPanelTabs from "./clientPanelTabs";
+import ClientDetails from "./clientDetails";
 
 import Blue from "@material-ui/core/colors/blue";
 
@@ -238,7 +238,7 @@ class PersistentDrawerLeft extends React.Component {
               path="/clients/clientdetails"
               render={() => (
                 <div>
-                  <ClientPanelTabs />
+                  <ClientDetails />
                 </div>
               )}
             />
