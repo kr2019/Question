@@ -219,6 +219,7 @@ class EnhancedTable extends React.Component {
       <Container maxWidth="lg">
         <Paper className={classes.root}>
           <div className={classes.tableWrapper}>
+            {/* Start of Client Details dialog */}
             <Dialog
               fullScreen
               open={this.state.open}
@@ -239,6 +240,7 @@ class EnhancedTable extends React.Component {
                   </Typography>
                 </Toolbar>
               </AppBar>
+              {/* Client Details */}
               <ClientPanelTabs />
             </Dialog>
 
@@ -259,6 +261,8 @@ class EnhancedTable extends React.Component {
                         className={classes.row}
                         tabIndex={-1}
                         key={n.id}
+                        /* below is the action which opens up the client details dialog */
+
                         onClick={this.handleClickOpen}
                       >
                         <TableCell align="center">
