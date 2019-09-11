@@ -20,13 +20,18 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import Mood from "@material-ui/icons/Mood";
+import MoodIcon from "@material-ui/icons/Mood";
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 
-import ClientDetails from "./Details";
+import ClientDetails from "./Client/clientDetails";
 
 import Blue from "@material-ui/core/colors/blue";
 
-import ClientsTable from "./Table";
+import ClientTable from "./Client/clientTable";
+import AddNewClient from "./Client/addNewClient";
+import AddNewMember from "./Member/addNewMember";
+import NewClient from "./Client/newClientInfo";
+import MemberTable from "./Member/memberTable";
 import { Switch, Link, Route } from "react-router-dom";
 
 //width of drawer
@@ -101,7 +106,11 @@ const navStyle = {
 };
 
 const Page404 = () => {
-  return <h3>404 error - Just smile and wave, boys...smile and wave.</h3>;
+  return (
+    <h3>
+      404 error - Please select the correct page on the left navigation bar
+    </h3>
+  );
 };
 
 class PersistentDrawerLeft extends React.Component {
@@ -206,9 +215,17 @@ class PersistentDrawerLeft extends React.Component {
             <Link style={navStyle} to="/clients">
               <ListItem button>
                 <ListItemIcon>
-                  <Mood />
+                  <MoodIcon />
                 </ListItemIcon>
                 <ListItemText primary="Clients" />
+              </ListItem>
+            </Link>
+            <Link style={navStyle} to="/teammembers">
+              <ListItem button>
+                <ListItemIcon>
+                  <PeopleOutlineIcon />
+                </ListItemIcon>
+                <ListItemText primary="Team Members" />
               </ListItem>
             </Link>
           </List>
@@ -228,7 +245,18 @@ class PersistentDrawerLeft extends React.Component {
               path="/clients"
               render={props => (
                 <div>
-                  <ClientsTable />
+                  <AddNewClient />
+                  <ClientTable />
+                </div>
+              )}
+            />
+
+            <Route
+              exact
+              path="/clients/newclient"
+              render={() => (
+                <div>
+                  <NewClient />
                 </div>
               )}
             />
@@ -244,10 +272,20 @@ class PersistentDrawerLeft extends React.Component {
             />
 
             <Route
+              exact
+              path="/teammembers"
               render={() => (
                 <div>
-                  {/* <Page404/> */}
-                  <ClientsTable />
+                  <AddNewMember />
+                  <MemberTable />
+                </div>
+              )}
+            />
+
+            <Route
+              render={() => (
+                <div>
+                  <Page404 />
                 </div>
               )}
             />

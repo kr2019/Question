@@ -19,7 +19,7 @@ import Slide from "@material-ui/core/Slide";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import CloseIcon from "@material-ui/icons/Close";
-import ClientDetails from "./Details";
+import ClientDetails from "./clientDetails";
 
 import axios from "axios";
 
@@ -149,7 +149,7 @@ class EnhancedTable extends React.Component {
     clientData: [],
     selectedIndex: null,
     page: 0,
-    rowsPerPage: 5
+    rowsPerPage: 10
   };
 
   componentDidMount() {
@@ -289,7 +289,7 @@ class EnhancedTable extends React.Component {
             </Table>
           </div>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 15, 20]}
+            rowsPerPageOptions={[10, 20, 50]}
             component="div"
             count={clientData.length}
             rowsPerPage={rowsPerPage}
